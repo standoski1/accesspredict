@@ -13,5 +13,8 @@ module.exports = withPWA({
   images: {
     domains: ["media.api-sports.io"],
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 })
 
