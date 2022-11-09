@@ -22,7 +22,7 @@ class MyDocument extends Document {
         <meta name="author" content="accesspredict"></meta>  
         <meta name="twitter:card" content="summary_large_image"></meta> 
         <link rel="icon" href="/favicon.ico" />
-        <meta name="google-site-verification" content="S0VFRCbm6Z6jK-txpke_W10FlKOCcP5A10qt2QBld9c" />
+        <meta name="google-site-verification" content="j-ZlsXLAauwf8nT4Y4IcAx_iVfxT8PEabxCOu7dmDJQ" />
         </Head>
         <body>
           <Main />
