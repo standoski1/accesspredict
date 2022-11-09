@@ -176,10 +176,10 @@ const Home: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
                     <td style={{width:'10%'}}><div className={styles.deskOver}>{dat?.overUnder}</div></td>
                     <td style={{width:'10%'}}>
                       <div className={styles.deskTip} style={{background:`${dat.status !== "FT"? '#088bd1' : dat.status === "FT" && 
-                      (dat.tip === '1' && dat.goalHome > dat.goalAway? '#08d13b':dat.tip === '1x' && dat.goalHome > dat.goalAway || dat.goalHome === dat.goalAway? '#08d13b' :
-                      dat.tip === '2' && dat.goalHome < dat.goalAway?'#08d13b': dat.tip === 'x2' && dat.goalHome < dat.goalAway || dat.goalHome === dat.goalAway? '#08d13b' : 
-                      dat.tip === '12' && dat.goalHome !== dat.goalAway?'#08d13b': dat.tip === 'X' && dat.goalHome === dat.goalAway?'#08d13b': '#bbbcbd')}`}}>
-                      {dat?.tip}
+                      (dat.tip === '1' && (parseInt(dat.goalHome) > parseInt(dat.goalAway)) ? '#08d13b' : dat.tip === '1x' && (parseInt(dat.goalHome) > parseInt(dat.goalAway) || parseInt(dat.goalHome) === parseInt(dat.goalAway)) ? '#08d13b' :
+                      dat.tip === '2' && (parseInt(dat.goalHome) < parseInt(dat.goalAway)) ?'#08d13b': dat.tip === 'x2' && (parseInt(dat.goalHome) < parseInt(dat.goalAway) || parseInt(dat.goalHome) === parseInt(dat.goalAway)) ? '#08d13b' : 
+                      dat.tip === '12' && (parseInt(dat.goalHome) !== parseInt(dat.goalAway)) ?'#08d13b': dat.tip === 'X' && (parseInt(dat.goalHome) === parseInt(dat.goalAway)) ?'#08d13b': '#bbbcbd')}`}}>
+                       {dat?.tip}
                       </div>
                     </td>
                     <td style={{width:'10%'}}>
