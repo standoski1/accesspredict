@@ -207,10 +207,10 @@ const Basketball: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
                 <Accordion.Item eventKey="2">
                   <Accordion.Header>Free Football Prediction Site</Accordion.Header>
                   <Accordion.Body>
-                  You don't even need to worry about purchasing games from us because everyone 
+                  You don&apos;t even need to worry about purchasing games from us because everyone 
                   can access us for free. You may get all of our predictions for free by just 
                   visitig our website daily.
-                  world's top football prediction website, We work very hard to ensure that our users 
+                  world&apos;s top football prediction website, We work very hard to ensure that our users 
                   win their games, thus we are constantly updating our forecasts.
                   </Accordion.Body>
                 </Accordion.Item>
@@ -229,7 +229,7 @@ const Basketball: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
                   2. We Offer Accurate Predictions: Another aspect that propelled us into the top 10 football 
                   prediction sites is the accuracy of our predictions. We always take care to choose our advice 
                   wisely, and it has been effective. 
-                  3. You can see all of our free forecasts even if you don't join up because we don't impose 
+                  3. You can see all of our free forecasts even if you don&apos;t join up because we don&apos;t impose 
                   any restrictions on our users. You can still get our forecasts for free even if this is 
                   your first visit to our page. 
                   4. We have a team of experienced bettors: Having a strong team behind you can propel your 
@@ -244,7 +244,7 @@ const Basketball: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
                     into account. We then use a variety of accurate and dependable AI APIs to make our 
                     predictions. We have a ton of testimonials on both our Facebook page and our prior 
                     victories. On our prediction page, you may access the games from yesterday and judge 
-                    for yourself. Why don't you join us today to take advantage of all of our Free and 
+                    for yourself. Why don&apos;t you join us today to take advantage of all of our Free and 
                     Accurate Football Predictions? We are the Best Football Prediction Site in the World, 
                     and we also offer Free Football Prediction on our Facebook page every week. We also 
                     post free football predictions on our Twitter page every week, which is why people 

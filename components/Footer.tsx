@@ -44,7 +44,7 @@ export default function Footer() {
             <div className="row ">
                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center ">
                     <div className={styles.tinyfooter}>
-                        <p>Copyright © All Rights Reserved 2022 | Design & Development by <a href="https://grafytech.com" target="_blank" className="copyrightlink">Grafytech</a></p>
+                        <p>Copyright © All Rights Reserved 2022 | Design & Development by <a href="https://grafytech.com" target="_blank" rel="noopener noreferrer" className="copyrightlink">Grafytech</a></p>
                     </div>
                 </div>
                 
