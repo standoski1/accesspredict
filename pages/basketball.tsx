@@ -186,7 +186,7 @@ const Basketball: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
           
           </div>
 
-          <h1 style={{textAlign:'center',marginTop:'30px'}}>FAQ</h1>
+          <h3 style={{textAlign:'center',marginTop:'30px'}}>FAQ</h3>
           <Container>
            <br /><br />
            <Row>
