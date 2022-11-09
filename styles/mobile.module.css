@@ -1,0 +1,133 @@
+.mobCountry{
+    background-color: #bebdbe;
+    color: rgb(17, 17, 17);
+    padding: 4px;
+    font-size: 12px;
+    margin-top: -15px;
+    font-weight: 500;
+}
+.basketmobcountry{
+    background-color: #4597ac;
+    color: rgb(224, 218, 218);
+    padding: 4px;
+    font-size: 12px;
+    margin-top: -15px;
+    font-weight: 500;
+}
+.mobTime{
+    font-size: 11px;
+    margin-top: 4px;
+    position: relative;
+}
+.mobTeam{
+    font-size: 11px;
+    text-align: center;
+    margin-top: 3px;
+}
+.mobScore{
+    display: flex;
+    justify-content: center;
+    margin: 5px auto;
+}
+.mobTip{
+    font-size: 12px;
+    background-color: #067a97;
+    color: #fff;
+    text-align: center;
+    width: 24px;
+    margin: 4px auto ;
+}
+.mobAllForm{
+    display: flex;
+    justify-content: space-around;
+}
+.sup{
+    position: absolute;
+    right: 2.7rem;
+    top: 0;
+    border-radius: 50%;
+    background-color: rgb(243, 28, 28);
+    width: 3px;
+    height: 4px;
+    font-size: 5px;
+    animation: blinker 2s linear infinite !important;
+  }
+  @keyframes blinker {
+    80% {
+      opacity: 0;
+    }
+   }
+@media (max-width: 600px) {
+    .sup{
+      right: 1.9rem;
+    }
+}
+@media (max-width: 550px) {
+    .sup{
+      right: 1.7rem;
+    }
+}
+@media (max-width: 510px) {
+    .sup{
+      right: 1.5rem;
+    }
+}
+@media (max-width: 480px) {
+    .sup{
+      right: 1.2rem;
+    }
+}
+@media (max-width: 430px) {
+    .sup{
+      right: 1rem;
+      width: 2px;
+    }
+}
+@media (max-width: 430px) {
+    .sup{
+      right: .9rem;
+    }
+}
+@media (max-width: 380px) {
+    .sup{
+      right: .75rem;
+    }
+}
+.deskScore1{
+    background: rgb(240, 242, 243);
+    text-align: center;
+    color: rgb(29, 27, 27);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 0;
+    min-width: 30px;
+}
+.deskScore2{
+    background: rgb(240, 242, 243);
+    text-align: center;
+    color: rgb(238, 68, 68);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 0;
+    min-width: 30px;
+}
+.allDeskForm,.allDeskForm2{
+    display: flex;
+    margin-top: 4px;
+}
+.deskForm{
+    height: 18px !important;
+    padding: 2px 5px 10px 5px !important;
+    margin-right: 5px;
+    color: #fff;
+    font-size: 10px;
+    text-align: center;
+    width: 18px;
+}
+.mobOdd{
+    font-size: 11px;
+    margin-top: 6px;
+}
+.mobOver{
+    font-size: 13px;
+}

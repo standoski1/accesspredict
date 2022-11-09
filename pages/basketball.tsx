@@ -5,10 +5,10 @@ import Image from 'next/image'
 import Header from '../components/Header'
 import styles from '../styles/Home.module.css'
 import { Table, Spinner, Alert, Row, Col, Accordion, Container } from 'react-bootstrap'
-import PredictMobile from '../components/predictMobile'
 import { axiosInstance } from '../utils/axios'
 import moment from 'moment'
 import Link from 'next/link'
+import BasketballMobile from '../components/basketballMobile'
 import Footer from '../components/Footer'
 import Adblocker from '../components/adblocker'
 
@@ -16,12 +16,12 @@ import Adblocker from '../components/adblocker'
 
 export const getServerSideProps = async () => {
   try {
-    const response = await (await axiosInstance.get("home/fetchfreepred")).data
+    const response = await (await axiosInstance.get("basketball/fetchfreepred")).data
 
      return {
        props: {
-        FirstLeague: response.fetchlig,
-        FirstFixtures: response.fetchfix
+        FirstLeague: response.findLeague,
+        FirstFixtures: response.findFixture
       },
      };
  } catch (error:any) {
@@ -34,7 +34,7 @@ export const getServerSideProps = async () => {
    
  }
 
-const Home: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
+const Basketball: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
 
  
 
@@ -46,14 +46,13 @@ const Home: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
   const [League, setLeague] = useState<any[]>([])
   const [Fixture, setFixture] = useState<any[]>([])
   const [Loading, setLoading] = useState(true)
-  const [Prev, setPrev] = useState<any[]>([])
 
 
   if (error) {
     console.log(error);
   }
 
-   
+
   useEffect(() => {
     fetchNew()
   }, [newDate])
@@ -67,36 +66,22 @@ const Home: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
       setLoading(false)
     }
   }
-
-  useEffect(() => {
-    fetchFreePrev()
-  }, [])
-
-  const fetchFreePrev = async()=>{
-    await axiosInstance.get('access/fetchfreeprev').then((res)=>{
-      setPrev(res.data)
-    }).catch((err)=>{
-      console.log(err.message);
-    })
-  }
-  
   
   
   return (
     <React.Fragment>
       <Head>
-        <title key="home title">Accesspredict: Best Football Prediction Site|Betting tips</title>
-        <meta property="og:title" content="Accesspredict: Best Football Prediction Site|Betting tips"/>
-        <meta property="og:description" content="Best Football Prediction Site, Accesspredict analyze football games perfectly and provide free and winning bet tips on all football matches."/>
+        <meta property="og:title" content="Free and accurate basketball prediction"/>
+        <meta property="og:description" content="Get the best, free, accurate, and sure basketball predictions everyday."/>
         <meta property="og:image" content="/images/access.png"/>
         <meta property="og:url" content="https://accesspredict.com?"/>
-        <meta name="description" content="Best Football Prediction Site, Accesspredict analyze football games perfectly and provide free and winning bet tips on all football matches."></meta>
-        <meta name="keywords" content="bet, best football prediction site, best football predictions and tips, Free football prediction site, best Football prediction site in Nigeria"></meta>
+        <title>Free and accurate basketball prediction</title>
+        <meta name="description" content="Get the best, free, accurate, and sure basketball predictions everyday." />
       </Head>
 
-      <Adblocker/>
-
       <Header/>
+
+      <Adblocker/>
 
       
       <div className={styles.container}>
@@ -107,7 +92,7 @@ const Home: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
           <div className={`${styles.mainDiv} card`}>
 
             <div className={styles.mainButton}>
-            <Link href='/basketball' style={{textDecoration:'none'}}><div className={styles.singbtn}>Basketball</div></Link>
+              <Link href='/' style={{textDecoration:'none'}}><div className={styles.singbtn}>Football</div></Link>
               <div onClick={()=>setnewDate(Yesterday)} className={newDate === Yesterday? styles.singact : styles.singbtn}>{moment(Yesterday).format("DD-MM")}</div>
               <div onClick={()=>setnewDate(today)} className={newDate === today? styles.singact : styles.singbtn}>today</div>
               <div onClick={()=>setnewDate(tomm)} className={newDate === tomm? styles.singact : styles.singbtn}>{moment(tomm).format("DD-MM")}</div>
@@ -115,7 +100,7 @@ const Home: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
             </div>
 
             <div className={styles.mobileDiv}>
-            <PredictMobile League={League} Fixture={Fixture} Loading={Loading}/>
+            <BasketballMobile League={League} Fixture={Fixture} Loading={Loading}/>
             </div>
 
             <div className={styles.desktopDiv}>
@@ -130,7 +115,7 @@ const Home: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
              </Alert> :
              League?.map((data:any,i:any)=>(
               <React.Fragment key={i}>
-              <div className={styles.country}><Image style={{marginTop:'-4px',marginRight:'10px'}} src={data.flag? data.flag : "/images/fifa.png"} width={20} height={13} alt='accesspredict'/>
+              <div className={styles.basketcountry}><Image style={{marginTop:'-4px',marginRight:'10px'}} src={data.flag? data.flag : "/images/fifa.png"} width={20} height={13} alt='accesspredict'/>
                {data.country} : {data.leagueName}
                </div>
 
@@ -141,7 +126,7 @@ const Home: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
                     <td className={styles.deskTime} style={{width:'10%'}}>
                        <div className={styles.deskTimerelat}>
                         {dat?.status === "NS"? new Date(dat?.time).toTimeString().slice(0,5) : dat?.status}
-                        {dat.status === "1H" || dat?.status === "2H" || dat?.status === "ET" || dat?.status === "P"?<div className={styles.sup}>.</div>:''}
+                        {dat.status === "Q1" || dat?.status === "Q2" || dat?.status === "Q3" || dat?.status === "Q4" || dat?.status === "OT"?<div className={styles.sup}>.</div>:''}
                        </div>
                     </td>
                     <td className={styles.deskTeam} style={{width:'25%'}}>{dat?.homeTeam} <br /> {dat?.awayTeam}</td>
@@ -173,20 +158,18 @@ const Home: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
                       </div>
                     </td>
                     <td style={{width:'10%'}} className={styles.deskOdd}>{dat?.odd1} <br /> {dat?.odd2}</td>
-                    <td style={{width:'10%'}}><div className={styles.deskOver}>{dat?.overUnder}</div></td>
+                    <td style={{width:'10%'}}><div className={styles.deskOver}>{dat?.overUnder === "NaN"? '-': dat?.overUnder}</div></td>
                     <td style={{width:'10%'}}>
                       <div className={styles.deskTip} style={{background:`${dat.status !== "FT"? '#088bd1' : dat.status === "FT" && 
-                      (dat.tip === '1' && dat.goalHome > dat.goalAway? '#08d13b':dat.tip === '1x' && dat.goalHome > dat.goalAway || dat.goalHome === dat.goalAway? '#08d13b' :
-                      dat.tip === '2' && dat.goalHome < dat.goalAway?'#08d13b': dat.tip === 'x2' && dat.goalHome < dat.goalAway || dat.goalHome === dat.goalAway? '#08d13b' : 
-                      dat.tip === '12' && dat.goalHome !== dat.goalAway?'#08d13b': dat.tip === 'X' && dat.goalHome === dat.goalAway?'#08d13b': '#bbbcbd')}`}}>
+                      (dat.tip === '1' && dat.goalHome > dat.goalAway? '#08d13b': dat.tip === '2' && dat.goalHome < dat.goalAway?'#08d13b': '#bbbcbd')}`}}>
                       {dat?.tip}
                       </div>
                     </td>
                     <td style={{width:'10%'}}>
-                     <div className={dat.status === "1H" || dat?.status === "2H" || dat?.status === "ET" || dat?.status === "P"? styles.deskScore2 : styles.deskScore1}>
+                     <div className={dat.status === "Q1" || dat?.status === "Q2" || dat?.status === "Q3" || dat?.status === "Q4" || dat?.status === "OT"? styles.deskScore2 : styles.deskScore1}>
                       {dat?.goalHome? dat?.goalHome : '?'}
                       </div>
-                     <div className={dat.status === "1H" || dat?.status === "2H" || dat?.status === "ET" || dat?.status === "P"? styles.deskScore2 : styles.deskScore1}>
+                     <div className={dat.status === "Q1" || dat?.status === "Q2" || dat?.status === "Q3" || dat?.status === "Q4" || dat?.status === "OT"? styles.deskScore2 : styles.deskScore1}>
                       {dat?.goalAway? dat?.goalAway : '?'}
                       </div>
                     </td>
@@ -204,9 +187,8 @@ const Home: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
           </div>
 
           <h1 style={{textAlign:'center',marginTop:'30px'}}>FAQ</h1>
-           
-           <Container>
-           <br />
+          <Container>
+           <br /><br />
            <Row>
             <Col md={6}>
               <Accordion>
@@ -281,36 +263,82 @@ const Home: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
            <Container>
             
             <Row>
-
-              {Prev?.slice(0,4).map((data,i)=>(
            <Col md={6} style={{marginBottom:'20px'}}>
             <Accordion>
                 <Accordion.Item eventKey="1">
-                  <Accordion.Header>{data?.teams} <br /> {moment(data?.createdAt).format("DD-MM-YYYY")}</Accordion.Header>
+                  <Accordion.Header>Rangers vs Liverpool Match Preview <br /> 12-10-2022</Accordion.Header>
                   <Accordion.Body>
-                      <p className="card-text">
-                        {data?.text}
-                      </p>
-                      <p className="card-text">
-                        {data?.text2}
-                      </p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in
+                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
                   </Accordion.Body>
                 </Accordion.Item>
               </Accordion>
             </Col>
-             ))}
+           <Col md={6} style={{marginBottom:'20px'}}>
+            <Accordion>
+                <Accordion.Item eventKey="1">
+                  <Accordion.Header>Rangers vs Liverpool Match Preview <br /> 12-10-2022</Accordion.Header>
+                  <Accordion.Body>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in
+                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
+            </Col>
+           <Col md={6} style={{marginBottom:'20px'}}>
+            <Accordion>
+                <Accordion.Item eventKey="1">
+                  <Accordion.Header>Rangers vs Liverpool Match Preview <br /> 12-10-2022</Accordion.Header>
+                  <Accordion.Body>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in
+                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
+            </Col>
+           <Col md={6} style={{marginBottom:'20px'}}>
+            <Accordion>
+                <Accordion.Item eventKey="1">
+                  <Accordion.Header>Rangers vs Liverpool Match Preview <br /> 12-10-2022</Accordion.Header>
+                  <Accordion.Body>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in
+                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
+            </Col>
 
             </Row>
            </Container>
 
-          <Footer/>
+        <Footer/>
 
       </div>
-      
+
       
 
     </React.Fragment>
   )
 }
 
-export default Home
+export default Basketball

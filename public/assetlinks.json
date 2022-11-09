@@ -1,0 +1,11 @@
+[
+    {
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.fulltime_predict.twa",
+        "sha256_cert_fingerprints":
+          ["D4:CC:49:E6:CC:5E:BA:5F:50:AD:65:08:71:6A:20:D5:72:0B:98:D5:59:66:DC:C4:D3:25:1B:66:6B:88:D5:15"]
+      }
+    }
+  ]
