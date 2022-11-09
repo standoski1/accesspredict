@@ -10,6 +10,7 @@ const withPWA = require("next-pwa")({
 module.exports = withPWA({
   reactStrictMode: true,
   swcMinify: true,
+  poweredByHeader: false,
   images: {
     domains: ["media.api-sports.io"],
   },
