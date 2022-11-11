@@ -46,6 +46,7 @@ const Basketball: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
   const [League, setLeague] = useState<any[]>([])
   const [Fixture, setFixture] = useState<any[]>([])
   const [Loading, setLoading] = useState(true)
+  const [Prev, setPrev] = useState<any[]>([])
 
 
   if (error) {
@@ -65,6 +66,18 @@ const Basketball: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
       setFixture(findFix)
       setLoading(false)
     }
+  }
+
+  useEffect(() => {
+    fetchFreePrev()
+  }, [])
+
+  const fetchFreePrev = async()=>{
+    await axiosInstance.get('access/fetchfreeprev').then((res)=>{
+      setPrev(res.data)
+    }).catch((err)=>{
+      console.log(err.message);
+    })
   }
   
   
@@ -263,70 +276,24 @@ const Basketball: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
            <Container>
             
             <Row>
-           <Col md={6} style={{marginBottom:'20px'}}>
+
+              {Prev?.slice(0,6).map((data,i)=>(
+           <Col md={6} style={{marginBottom:'20px'}} key={i}>
             <Accordion>
                 <Accordion.Item eventKey="1">
-                  <Accordion.Header>Rangers vs Liverpool Match Preview <br /> 12-10-2022</Accordion.Header>
+                  <Accordion.Header>{data?.teams} <br /> {moment(data?.createdAt).format("DD-MM-YYYY")}</Accordion.Header>
                   <Accordion.Body>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in
-                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
+                      <p className="card-text">
+                        {data?.text}
+                      </p>
+                      <p className="card-text">
+                        {data?.text2}
+                      </p>
                   </Accordion.Body>
                 </Accordion.Item>
               </Accordion>
             </Col>
-           <Col md={6} style={{marginBottom:'20px'}}>
-            <Accordion>
-                <Accordion.Item eventKey="1">
-                  <Accordion.Header>Rangers vs Liverpool Match Preview <br /> 12-10-2022</Accordion.Header>
-                  <Accordion.Body>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in
-                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
-                  </Accordion.Body>
-                </Accordion.Item>
-              </Accordion>
-            </Col>
-           <Col md={6} style={{marginBottom:'20px'}}>
-            <Accordion>
-                <Accordion.Item eventKey="1">
-                  <Accordion.Header>Rangers vs Liverpool Match Preview <br /> 12-10-2022</Accordion.Header>
-                  <Accordion.Body>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in
-                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
-                  </Accordion.Body>
-                </Accordion.Item>
-              </Accordion>
-            </Col>
-           <Col md={6} style={{marginBottom:'20px'}}>
-            <Accordion>
-                <Accordion.Item eventKey="1">
-                  <Accordion.Header>Rangers vs Liverpool Match Preview <br /> 12-10-2022</Accordion.Header>
-                  <Accordion.Body>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in
-                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
-                  </Accordion.Body>
-                </Accordion.Item>
-              </Accordion>
-            </Col>
+             ))}
 
             </Row>
            </Container>

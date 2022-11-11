@@ -282,7 +282,7 @@ const Home: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
             
             <Row>
 
-              {Prev?.slice(0,4).map((data,i)=>(
+              {Prev?.slice(0,6).map((data,i)=>(
            <Col md={6} style={{marginBottom:'20px'}} key={i}>
             <Accordion>
                 <Accordion.Item eventKey="1">
