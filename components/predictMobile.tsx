@@ -64,10 +64,10 @@ export default function PredictMobile({League, Fixture, Loading}:any) {
             </td>
             <td style={{width:'30%'}}> <div className={styles.mobTeam}>{dat?.awayTeam}</div></td>
             <td style={{width:'10%'}}> 
-               <div className={styles.mobTip} style={{background:`${dat.status !== "FT"? '#088bd1' : dat.status === "FT" && 
-                  (dat.tip === '1' && (parseInt(dat.goalHome) > parseInt(dat.goalAway)) ? '#08d13b' : dat.tip === '1x' && (parseInt(dat.goalHome) > parseInt(dat.goalAway) || parseInt(dat.goalHome) === parseInt(dat.goalAway)) ? '#08d13b' :
-                  dat.tip === '2' && (parseInt(dat.goalHome) < parseInt(dat.goalAway)) ?'#08d13b': dat.tip === 'x2' && (parseInt(dat.goalHome) < parseInt(dat.goalAway) || parseInt(dat.goalHome) === parseInt(dat.goalAway)) ? '#08d13b' : 
-                  dat.tip === '12' && (parseInt(dat.goalHome) !== parseInt(dat.goalAway)) ?'#08d13b': dat.tip === 'X' && (parseInt(dat.goalHome) === parseInt(dat.goalAway)) ?'#08d13b': '#bbbcbd')}`}}>
+               <div className={styles.mobTip} style={{background:`${dat.status === "FT" || dat.status === "PEN" || dat.status === "AET"?
+                      (dat.tip === '1' && (parseInt(dat.goalHome) > parseInt(dat.goalAway)) ? '#08d13b' : dat.tip === '1x' && (parseInt(dat.goalHome) > parseInt(dat.goalAway) || parseInt(dat.goalHome) === parseInt(dat.goalAway)) ? '#08d13b' :
+                      dat.tip === '2' && (parseInt(dat.goalHome) < parseInt(dat.goalAway)) ?'#08d13b': dat.tip === 'x2' && (parseInt(dat.goalHome) < parseInt(dat.goalAway) || parseInt(dat.goalHome) === parseInt(dat.goalAway)) ? '#08d13b' : 
+                      dat.tip === '12' && (parseInt(dat.goalHome) !== parseInt(dat.goalAway)) ?'#08d13b': dat.tip === 'X' && (parseInt(dat.goalHome) === parseInt(dat.goalAway)) ?'#08d13b': '#bbbcbd'): "#088bd1"}`}}>
                    {dat?.tip}
                </div>
             </td>

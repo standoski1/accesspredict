@@ -173,8 +173,8 @@ const Basketball: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
                     <td style={{width:'10%'}} className={styles.deskOdd}>{dat?.odd1} <br /> {dat?.odd2}</td>
                     <td style={{width:'10%'}}><div className={styles.deskOver}>{dat?.overUnder === "NaN"? '-': dat?.overUnder}</div></td>
                     <td style={{width:'10%'}}>
-                      <div className={styles.deskTip} style={{background:`${dat.status !== "FT"? '#088bd1' : dat.status === "FT" && 
-                      (dat.tip === '1' && (parseInt(dat.goalHome) > parseInt(dat.goalAway)) ? '#08d13b': dat.tip === '2' && (parseInt(dat.goalHome) < parseInt(dat.goalAway)) ?'#08d13b': '#bbbcbd')}`}}>
+                      <div className={styles.deskTip} style={{background:`${dat.status === "FT" || dat.status === "AOT"? 
+                      (dat.tip === '1' && (parseInt(dat.goalHome) > parseInt(dat.goalAway)) ? '#08d13b': dat.tip === '2' && (parseInt(dat.goalHome) < parseInt(dat.goalAway)) ?'#08d13b': '#bbbcbd'):"#088bd1"}`}}>
                       {dat?.tip}
                       </div>
                     </td>
