@@ -1,4 +1,5 @@
-export const GA_TRACKING_ID = 'G-JCXZ6CQCJ4'
+export const GA_TRACKING_ID = 'G-PGWPSN8C53'
+// export const GA_TRACKING_ID = 'G-JCXZ6CQCJ4'
 
 
 declare const window: any;

@@ -9,7 +9,7 @@ export default function Footer() {
             <hr className={styles.footerline}/>
             <div className="row ">
                 
-                <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                     <div className={styles.footerwidget}>
                         <ul className={styles.listunstyled}>
                             <li><Link href="/">Home</Link></li>
@@ -19,7 +19,7 @@ export default function Footer() {
                     </div>
                 </div>
                
-                <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                     <div className={styles.footerwidget}>
                         <ul className={styles.listunstyled}>
                             <li><Link href="/">Football</Link></li>
@@ -29,13 +29,26 @@ export default function Footer() {
                     </div>
                 </div>
               
-                <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                     <div className={styles.footerwidget}>
                         <ul className={styles.listunstyled}>
                            <li><a href="https://twitter.com/accesspredict" target="_blank" rel="noopener noreferrer"><i className='fa fa-twitter-square'></i> Twitter</a></li>
                             <li><a href="https://facebook.com/profile.php?id=100087756305330" target="_blank" rel="noopener noreferrer"><i className='fa fa-facebook-square'></i> Facebook</a></li>
                         </ul>
                     </div>
+                </div>
+
+                <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                    <section className={`${styles.widget} ${styles.widgetlightskin}`}>
+                        <a className={`${styles.marketbutton} ${styles.applebutton} ${styles.mblightskin}`} href="#">
+                        <span className={styles.mbsubtitle}>Download on the</span>
+                        <span className={styles.mbtitle}>App Store</span>
+                        </a>
+                        <a className={`${styles.marketbutton} ${styles.googlebutton} ${styles.mblightskin}`} target="blank" href="https://play.google.com/store/apps/details?id=com.accesspredict.twa">
+                        <span className={styles.mbsubtitle}>Download on the</span>
+                        <span className={styles.mbtitle}>Google Play</span>
+                        </a>
+                   </section>
                 </div>
                
                 
