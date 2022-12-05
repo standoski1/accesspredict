@@ -15,7 +15,6 @@ export default function PredictMobile({League, Fixture, Loading}:any) {
         }
         setClicked(index);
       };
-     console.log(Fixture);
      
 
   return (
