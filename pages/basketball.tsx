@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Header from '../components/Header'
 import styles from '../styles/Home.module.css'
-import { Table, Spinner, Alert, Row, Col, Accordion, Container } from 'react-bootstrap'
+import { Table, Spinner, Alert, Row, Col, Accordion, Container, Button } from 'react-bootstrap'
 import { axiosInstance } from '../utils/axios'
 import moment from 'moment'
 import Link from 'next/link'
@@ -47,6 +47,8 @@ const Basketball: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
   const [Fixture, setFixture] = useState<any[]>([])
   const [Loading, setLoading] = useState(true)
   const [Prev, setPrev] = useState<any[]>([])
+  const [supportsPWA, setSupportsPWA] = useState(false);
+  const [promptInstall, setPromptInstall] = useState(null);
 
 
   if (error) {
@@ -79,6 +81,27 @@ const Basketball: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
       console.log(err.message);
     })
   }
+
+
+  useEffect(() => {
+    const handler = (e:any) => {
+      e.preventDefault();
+      setSupportsPWA(true);
+      setPromptInstall(e);
+    };
+    window.addEventListener("beforeinstallprompt", handler);
+
+    return () => window.removeEventListener("transitionend", handler);
+  }, []);
+
+  const handleInstall = (evt:any) => {
+    evt.preventDefault();
+    if (!promptInstall) {
+      return;
+    }
+    // @ts-ignore
+    promptInstall.prompt();
+  };
   
   
   return (
@@ -105,7 +128,11 @@ const Basketball: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
           <div className={`${styles.mainDiv} card`}>
 
             <div className={styles.mainButton}>
-              <Link href='/' style={{textDecoration:'none'}}><div className={styles.singbtn}>Football</div></Link>
+              {supportsPWA === true &&
+                <Button onClick={handleInstall} variant="info" className={styles.singbtn}>
+                  <img src="/images/install.png" style={{width:'20px',height:'20px',marginRight:'5px'}} alt="" /> Install
+                </Button>
+              }
               <div onClick={()=>setnewDate(Yesterday)} className={newDate === Yesterday? styles.singact : styles.singbtn}>{moment(Yesterday).format("DD-MM")}</div>
               <div onClick={()=>setnewDate(today)} className={newDate === today? styles.singact : styles.singbtn}>today</div>
               <div onClick={()=>setnewDate(tomm)} className={newDate === tomm? styles.singact : styles.singbtn}>{moment(tomm).format("DD-MM")}</div>
