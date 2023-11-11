@@ -73,9 +73,9 @@ const Home: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
   }, [])
 
   const fetchFreePrev = async()=>{
-    await axiosInstance.get('access/fetchfreeprev').then((res)=>{
+    await axiosInstance.get('access/fetchfreeprev').then((res:any)=>{
       setPrev(res.data)
-    }).catch((err)=>{
+    }).catch((err:any)=>{
       console.log(err.message);
     })
   }
@@ -145,6 +145,26 @@ const Home: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
                        </div>
                     </td>
                     <td className={styles.deskTeam} style={{width:'25%'}}>{dat?.homeTeam} <br /> {dat?.awayTeam}</td>
+                    <td className={styles.predOdd}>
+                      <div className={styles.allPredOdd}>
+                        <div className={styles.predOdd2}>
+                          <div className={styles.headtohead}>{dat?.h2hHome1}</div>
+                          <div className={styles.headtohead}>{dat?.h2hHome2}</div>
+                          <div className={styles.headtohead}>{dat?.h2hHome3}</div>
+                          <div className={styles.headtohead}>{dat?.h2hHome4}</div>
+                          <div className={styles.headtohead}>{dat?.h2hHome5}</div>
+                          <div className={styles.headtohead}>{dat?.h2hHome6}</div>
+                        </div>
+                        <div className={styles.predOdd2}>
+                          <div className={styles.headtohead}>{dat?.h2hAway1}</div>
+                          <div className={styles.headtohead}>{dat?.h2hAway2}</div>
+                          <div className={styles.headtohead}>{dat?.h2hAway3}</div>
+                          <div className={styles.headtohead}>{dat?.h2hAway4}</div>
+                          <div className={styles.headtohead}>{dat?.h2hAway5}</div>
+                          <div className={styles.headtohead}>{dat?.h2hAway6}</div>
+                        </div>
+                      </div>
+                    </td>
                     <td style={{width:'25%'}}>
                       <div className={styles.allDeskForm}>
                           <div style={{backgroundColor:`${dat?.homeForm?.length > 0 && (dat?.homeForm[0] === "W"? 'green' :dat?.homeForm[0] === "D"? 'orange' :dat?.homeForm[0] === "L"? 'red' :'grey')}`}} 

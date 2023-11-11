@@ -12,7 +12,7 @@ module.exports = withPWA({
   swcMinify: true,
   poweredByHeader: false,
   images: {
-    domains: ["media.api-sports.io"],
+    domains: ["media.api-sports.io","media-4.api-sports.io"],
   },
   typescript: {
     ignoreBuildErrors: true,

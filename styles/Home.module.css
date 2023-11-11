@@ -7,7 +7,7 @@
   min-height: 100vh;
 }
 .mainDiv{
-  width: 60%;
+  width: 80%;
   margin: auto;
   padding: 1rem;
 }
@@ -222,4 +222,21 @@
   .sup{
     right: 1.3rem;
   }
+ }
+ .allPredOdd {
+   margin-right: 15px;
+ }
+
+ .predOdd2 {
+   display: flex;
+   text-align: center;
+ }
+
+ .headtohead {
+   background-color: #709baf;
+   color: #fff;
+   margin: 3px;
+   padding: 1px 2px;
+   width: 25px;
+   font-size: 12px;
  }

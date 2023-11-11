@@ -113,6 +113,29 @@ export default function PredictMobile({League, Fixture, Loading}:any) {
                              <div className={styles.mobOdd}>{dat?.odd2}</div>
                         </div>
                     </div>
+                    <p style={{textAlign:'center', marginTop:10, marginBottom:-2,fontWeight:600}}>Head to Head</p>
+                  <div className={styles.allMobPredOdd}>
+                    <div>
+                    <div className={styles.predOdd2}>
+                      <div className={styles.headtoheadMobHome}>Home</div>
+                      <div className={styles.headtoheadMob}>{dat?.h2hHome1}</div>
+                      <div className={styles.headtoheadMob}>{dat?.h2hHome2}</div>
+                      <div className={styles.headtoheadMob}>{dat?.h2hHome3}</div>
+                      <div className={styles.headtoheadMob}>{dat?.h2hHome4}</div>
+                      <div className={styles.headtoheadMob}>{dat?.h2hHome5}</div>
+                      <div className={styles.headtoheadMob}>{dat?.h2hHome6}</div>
+                    </div>
+                    <div className={styles.predOdd2}>
+                    <div className={styles.headtoheadMobAway}>Away</div>
+                      <div className={styles.headtoheadMob}>{dat?.h2hAway1}</div>
+                      <div className={styles.headtoheadMob}>{dat?.h2hAway2}</div>
+                      <div className={styles.headtoheadMob}>{dat?.h2hAway3}</div>
+                      <div className={styles.headtoheadMob}>{dat?.h2hAway4}</div>
+                      <div className={styles.headtoheadMob}>{dat?.h2hAway5}</div>
+                      <div className={styles.headtoheadMob}>{dat?.h2hAway6}</div>
+                    </div>
+                    </div>
+                  </div>
                 </td>
             </tr>
             ) : false}

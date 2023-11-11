@@ -131,3 +131,34 @@
 .mobOver{
     font-size: 13px;
 }
+.allMobPredOdd {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.predOdd2 {
+    display: flex;
+}
+
+.headtoheadMobHome {
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.headtoheadMobAway {
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 14px;
+}
+
+.headtoheadMob {
+    background-color: #709baf;
+    color: #fff;
+    margin: 5px;
+    padding: 1px 2px;
+    width: 30px;
+    font-size: 12px;
+    font-weight: 600;
+}
