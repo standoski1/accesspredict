@@ -29,6 +29,8 @@ export default function Header() {
           <Link href="/" className={routepath === "/" && styles.active}>Football</Link>
           <hr />
           <Link href="/basketball" className={routepath === "/basketball" && styles.active}>Basketball</Link>
+          <hr />
+          <Link href="/hockey" className={routepath === "/basketball" && styles.active}>Ice Hockey</Link>
           
         </div>
         <div

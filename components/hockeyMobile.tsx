@@ -5,7 +5,7 @@ import { Table, Alert, Spinner } from 'react-bootstrap'
 
 
 
-export default function BasketballMobile({League, Fixture, Loading}:any) {
+export default function HockeyMobile({League, Fixture, Loading}:any) {
 
     const [clicked, setClicked] = useState(false);
 
@@ -30,7 +30,7 @@ export default function BasketballMobile({League, Fixture, Loading}:any) {
         </Alert> :
         League?.map((data:any,i:any)=>(
             <React.Fragment key={i}>
-        <div className={styles.basketmobcountry}>
+        <div className={styles.hockeymobcountry}>
          <Image style={{marginTop:'-4px',marginRight:'10px'}} src={data.flag? data.flag : "/images/fifa.png"} width={22} height={15} alt='accesspredict'/> 
          {data.country} : {data.leagueName}
         </div>

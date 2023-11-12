@@ -72,6 +72,15 @@
   color: rgb(245, 245, 245);
   margin-top: -15px;
 }
+.hockeycountry {
+  background-color: #5f2e71;
+  border-radius: 5px;
+  padding: 4px 0 4px 9px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(245, 245, 245);
+  margin-top: -15px;
+}
 .deskTime{
   font-size: 12px;
   padding-top: 15px !important;

@@ -113,7 +113,7 @@ export default function PredictMobile({League, Fixture, Loading}:any) {
                              <div className={styles.mobOdd}>{dat?.odd2}</div>
                         </div>
                     </div>
-                    <p style={{textAlign:'center', marginTop:10, marginBottom:-2,fontWeight:600}}>Head to Head</p>
+                    <p style={{textAlign:'center', marginTop:10, marginBottom:-2,fontWeight:600, fontSize:"12px"}}>Head to Head</p>
                   <div className={styles.allMobPredOdd}>
                     <div>
                     <div className={styles.predOdd2}>
