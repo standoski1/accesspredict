@@ -171,7 +171,7 @@ const Home: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
                         {dat.status === "1H" || dat?.status === "2H" || dat?.status === "ET" || dat?.status === "P"?<div className={styles.sup}>.</div>:''}
                        </div>
                     </td>
-                    <td className={styles.deskTeam} style={{width:'25%'}}>{dat?.homeTeam} <br /> {dat?.awayTeam}</td>
+                    <td className={styles.deskTeam} style={{width:'25%'}}>{dat?.homeTeam} &nbsp;({dat?.position1})<br /> {dat?.awayTeam} &nbsp;({dat?.position2})</td>
                     <td className={styles.predOdd}>
                       <div className={styles.allPredOdd}>
                         <div className={styles.predOdd2}>

@@ -117,7 +117,7 @@ export default function PredictMobile({League, Fixture, Loading}:any) {
                   <div className={styles.allMobPredOdd}>
                     <div>
                     <div className={styles.predOdd2}>
-                      <div className={styles.headtoheadMobHome}>Home</div>
+                      <div className={styles.headtoheadMobHome}>Home &nbsp;({dat?.position1})</div>
                       <div className={styles.headtoheadMob}>{dat?.h2hHome1}</div>
                       <div className={styles.headtoheadMob}>{dat?.h2hHome2}</div>
                       <div className={styles.headtoheadMob}>{dat?.h2hHome3}</div>
@@ -126,7 +126,7 @@ export default function PredictMobile({League, Fixture, Loading}:any) {
                       <div className={styles.headtoheadMob}>{dat?.h2hHome6}</div>
                     </div>
                     <div className={styles.predOdd2}>
-                    <div className={styles.headtoheadMobAway}>Away</div>
+                    <div className={styles.headtoheadMobAway}>Away &nbsp;({dat?.position2})</div>
                       <div className={styles.headtoheadMob}>{dat?.h2hAway1}</div>
                       <div className={styles.headtoheadMob}>{dat?.h2hAway2}</div>
                       <div className={styles.headtoheadMob}>{dat?.h2hAway3}</div>
