@@ -66,7 +66,7 @@ export default function PredictMobile({League, Fixture, Loading}:any) {
                <div className={styles.mobTip} style={{background:`${dat.status === "FT" || dat.status === "PEN" || dat.status === "AET"?
                       (dat.tip === '1' && (parseInt(dat.goalHome) > parseInt(dat.goalAway)) ? '#08d13b' : dat.tip === '1x' && (parseInt(dat.goalHome) > parseInt(dat.goalAway) || parseInt(dat.goalHome) === parseInt(dat.goalAway)) ? '#08d13b' :
                       dat.tip === '2' && (parseInt(dat.goalHome) < parseInt(dat.goalAway)) ?'#08d13b': dat.tip === 'x2' && (parseInt(dat.goalHome) < parseInt(dat.goalAway) || parseInt(dat.goalHome) === parseInt(dat.goalAway)) ? '#08d13b' : 
-                      dat.tip === '12' && (parseInt(dat.goalHome) !== parseInt(dat.goalAway)) ?'#08d13b': dat.tip === 'X' && (parseInt(dat.goalHome) === parseInt(dat.goalAway)) ?'#08d13b': '#bbbcbd'): "#088bd1"}`}}>
+                      dat.tip === '12' && (parseInt(dat.goalHome) !== parseInt(dat.goalAway)) ?'#08d13b': dat.tip === 'X' && (parseInt(dat.goalHome) === parseInt(dat.goalAway)) ?'#08d13b':dat.tip === '-'? "#088bd1" : '#bbbcbd'): "#088bd1"}`}}>
                    {dat?.tip}
                </div>
             </td>
