@@ -123,7 +123,7 @@ const Home: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
       <Header/>
       
       <div style={{marginTop:'4.3rem',marginBottom:'-1.3rem'}}>
-          <AdBanner/>
+        <AdBanner/>
       </div>
       
       <div className={styles.container}>
