@@ -11,6 +11,7 @@ import Link from 'next/link'
 import Footer from '../components/Footer'
 import Adblocker from '../components/adblocker'
 import HockeyMobile from '../components/hockeyMobile'
+import AdBanner from '../components/ads/adsense'
 
 
 
@@ -119,7 +120,9 @@ const Hockey: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
 
       <Adblocker/>
 
-      
+      <div style={{marginTop:'4.3rem',marginBottom:'-1.3rem'}}>
+        <AdBanner/>
+      </div>
       <div className={styles.container}>
 
 

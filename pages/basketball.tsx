@@ -11,6 +11,7 @@ import Link from 'next/link'
 import BasketballMobile from '../components/basketballMobile'
 import Footer from '../components/Footer'
 import Adblocker from '../components/adblocker'
+import AdBanner from '../components/ads/adsense'
 
 
 
@@ -118,7 +119,9 @@ const Basketball: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
       <Header/>
 
       <Adblocker/>
-
+      <div style={{marginTop:'4.3rem',marginBottom:'-1.3rem'}}>
+        <AdBanner/>
+      </div>
       
       <div className={styles.container}>
 

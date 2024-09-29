@@ -11,6 +11,7 @@ import moment from 'moment'
 import Link from 'next/link'
 import Footer from '../components/Footer'
 import Adblocker from '../components/adblocker'
+import AdBanner from '../components/ads/adsense'
 
 
 
@@ -120,7 +121,10 @@ const Home: NextPage = ({FirstLeague,FirstFixtures,error}:any) => {
       <Adblocker/>
 
       <Header/>
-
+      
+      <div style={{marginTop:'4.3rem',marginBottom:'-1.3rem'}}>
+          <AdBanner/>
+      </div>
       
       <div className={styles.container}>
 
